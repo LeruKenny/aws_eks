@@ -33,13 +33,10 @@ function usage() {
 cat <<EOF
 Usage: ${0} \\
   -a/--action        [action] \\
-  -b/--bucket-prefix [bucket_prefix] \\
   -c/--component     [component_name] \\
   -e/--environment   [environment] \\
-  -g/--group         [group]
-  -i/--build-id      [build_id] (optional) \\
+  -g/--group         [group] \\
   -p/--project       [project] \\
-  -r/--region        [region] \\
   -d/--detailed-exitcode \\
   -n/--no-color \\
   -w/--compact-warnings \\
@@ -54,14 +51,6 @@ action:
     * shell
 - Generic actions:
     * See https://www.terraform.io/docs/commands/
-bucket_prefix (optional):
- Defaults to: "\${project_name}-tfscaffold"
- - myproject-terraform
- - terraform-yourproject
- - my-first-tfscaffold-project
-build_id (optional):
- - testing
- - \$BUILD_ID (jenkins)
 component_name:
  - the name of the terraform component module in the components directory
 environment:
@@ -75,9 +64,6 @@ group:
  - mytestgroup
 project:
  - The name of the project being deployed
-region (optional):
- Defaults to value of \$AWS_DEFAULT_REGION
- - the AWS region name unique to all components and terraform processes
 detailed-exitcode (optional):
  When not provided, false.
  Changes the plan operation to exit 0 only when there are no changes.
